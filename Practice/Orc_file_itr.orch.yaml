@@ -1,0 +1,126 @@
+type: "orchestration"
+version: "1.0"
+pipeline:
+  components:
+    Start:
+      type: "start"
+      transitions:
+        unconditional:
+        - "SQL Script"
+      parameters:
+        componentName: "Start"
+    SQL Script:
+      type: "sql-executor"
+      transitions:
+        success:
+        - "File Iterator"
+      parameters:
+        componentName: "SQL Script"
+        scriptLocation: "Component"
+        declareSqlVariables: "Include selected"
+        variablesToInclude:
+        sqlScript: "create or REPLACE TABLE TRANSACTION_NEW(\r\ntrans_id INT,\t\r\n\
+          account_id\tINT,\r\nDate\tDATE,\r\nType\tVARCHAR(30),\r\noperation\tVARCHAR(40),\r\
+          \namount\tINT,\r\nbalance\tFLOAT,\r\nPurpose\tVARCHAR(40),\r\nbank\tVARCHAR(45),\r\
+          \naccount_partern_id VARCHAR(50));"
+      postProcessing:
+        updateOutputMessage:
+        updateScalarVariables:
+    S3 Load:
+      type: "s3-load"
+      parameters:
+        componentName: "S3 Load"
+        stage: "[Custom]"
+        authentication: "Credentials"
+        s3ObjectPrefix: "s3://sidanalytics/Transactions_New"
+        pattern: ".*"
+        encryption: "S3 Encryption"
+        warehouse: "COMPUTE_WH"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
+        targetTable: "TRANSACTION_NEW"
+        loadColumns:
+        - "TRANS_ID"
+        - "ACCOUNT_ID"
+        - "DATE"
+        - "TYPE"
+        - "OPERATION"
+        - "AMOUNT"
+        - "BALANCE"
+        - "PURPOSE"
+        - "BANK"
+        - "ACCOUNT_PARTERN_ID"
+        format: "[Custom]"
+        fileType: "CSV"
+        compression: "AUTO"
+        recordDelimiter: ""
+        fieldDelimiter: ","
+        skipHeader: "1"
+        skipBlankLines: "False"
+        dateFormat:
+        timeFormat:
+        timestampFormat:
+        escape:
+        escapeUnenclosedField:
+        trimSpace: "False"
+        fieldOptionallyEnclosed:
+        nullIf:
+        errorOnColumnCountMismatch: "True"
+        emptyFieldAsNull: "True"
+        replaceInvalidCharacters: "False"
+        encodingType:
+        onError: "Abort Statement"
+        sizeLimitB:
+        purgeFiles: "False"
+        truncateColumns: "False"
+        forceLoad: "False"
+      postProcessing:
+        updateOutputMessage:
+        updateScalarVariables:
+    File Iterator:
+      type: "file-iterator"
+      iterationTarget: "S3 Load"
+      parameters:
+        componentName: "File Iterator"
+        inputDataType: "S3"
+        inputDataUrl1: "s3://sidanalytics/Transactions_New"
+        maxIterations: "6"
+        filterRegex: ".*\\.csv"
+        concurrency: "Sequential"
+        variables:
+        - - "filename"
+          - "Filename"
+        breakOnFailure: "No"
+      postProcessing:
+        updateOutputMessage:
+        updateScalarVariables:
+  variables:
+    filename:
+      metadata:
+        type: "TEXT"
+        description: "This variable will help us to pass the required file"
+        scope: "SHARED"
+        visibility: "PUBLIC"
+      defaultValue: "trnx_18.csv"
+design:
+  components:
+    Start:
+      position:
+        x: 0
+        "y": 0
+      tempMetlId: 1
+    SQL Script:
+      position:
+        x: 160
+        "y": 0
+      tempMetlId: 2
+    S3 Load:
+      position:
+        x: 320
+        "y": 0
+      tempMetlId: 3
+    File Iterator:
+      position:
+        x: 320
+        "y": -20
+      tempMetlId: 4
