@@ -32,7 +32,7 @@ pipeline:
         componentName: "S3 Load"
         stage: "[Custom]"
         authentication: "Credentials"
-        s3ObjectPrefix: "s3://sidanalytics/Transactions_New"
+        s3ObjectPrefix: "s3://sidanalytics/Transactions_New/${filename}"
         pattern: ".*"
         encryption: "S3 Encryption"
         warehouse: "COMPUTE_WH"
@@ -90,7 +90,7 @@ pipeline:
         variables:
         - - "filename"
           - "Filename"
-        breakOnFailure: "No"
+        breakOnFailure: "Yes"
       postProcessing:
         updateOutputMessage:
         updateScalarVariables:
@@ -108,19 +108,19 @@ design:
       position:
         x: 0
         "y": 0
-      tempMetlId: 1
+      tempMetlId:
     SQL Script:
       position:
         x: 160
         "y": 0
-      tempMetlId: 2
+      tempMetlId:
     S3 Load:
       position:
-        x: 320
-        "y": 0
-      tempMetlId: 3
+        x: 0
+        "y": 100
+      tempMetlId:
     File Iterator:
       position:
         x: 320
         "y": -20
-      tempMetlId: 4
+      tempMetlId:
