@@ -13,14 +13,14 @@ pipeline:
       type: "sql-executor"
       transitions:
         success:
-        - "File Iterator"
+        - "Fixed Iterator"
       parameters:
         componentName: "SQL Script"
         scriptLocation: "Component"
         declareSqlVariables: "Include selected"
         variablesToInclude:
-        sqlScript: "create or REPLACE TABLE TRANSACTION_NEW(\r\ntrans_id INT,\t\r\n\
-          account_id\tINT,\r\nDate\tDATE,\r\nType\tVARCHAR(30),\r\noperation\tVARCHAR(40),\r\
+        sqlScript: "create or REPLACE TABLE TRANSACTION_FIXED(\r\ntrans_id INT,\t\r\
+          \naccount_id\tINT,\r\nDate\tDATE,\r\nType\tVARCHAR(30),\r\noperation\tVARCHAR(40),\r\
           \namount\tINT,\r\nbalance\tFLOAT,\r\nPurpose\tVARCHAR(40),\r\nbank\tVARCHAR(45),\r\
           \naccount_partern_id VARCHAR(50));"
       postProcessing:
@@ -32,13 +32,13 @@ pipeline:
         componentName: "S3 Load"
         stage: "[Custom]"
         authentication: "Credentials"
-        s3ObjectPrefix: "s3://sidanalytics/Transactions_New/${filename}"
+        s3ObjectPrefix: "s3://sidanalytics/Transactions_New/${file_name}"
         pattern: ".*"
         encryption: "S3 Encryption"
         warehouse: "COMPUTE_WH"
         database: "DEMODATABASE"
         schema: "DEMOSCHEMA"
-        targetTable: "TRANSACTION_NEW"
+        targetTable: "TRANSACTION_FIXED"
         loadColumns:
         - "TRANS_ID"
         - "ACCOUNT_ID"
@@ -53,7 +53,7 @@ pipeline:
         format: "[Custom]"
         fileType: "CSV"
         compression: "AUTO"
-        recordDelimiter: ""
+        recordDelimiter:
         fieldDelimiter: ","
         skipHeader: "1"
         skipBlankLines: "False"
@@ -77,31 +77,29 @@ pipeline:
       postProcessing:
         updateOutputMessage:
         updateScalarVariables:
-    File Iterator:
-      type: "file-iterator"
+    Fixed Iterator:
+      type: "fixed-iterator"
       iterationTarget: "S3 Load"
       parameters:
-        componentName: "File Iterator"
-        inputDataType: "S3"
-        inputDataUrl1: "s3://sidanalytics/Transactions_New"
-        maxIterations: "6"
-        filterRegex: ".*\\.csv"
+        componentName: "Fixed Iterator"
         concurrency: "Sequential"
-        variables:
-        - - "filename"
-          - "Filename"
+        variablesToIterate:
+        - "file_name"
+        iterationValues:
+        - - "trnx_18"
+        - - "trnx_17"
         breakOnFailure: "Yes"
       postProcessing:
         updateOutputMessage:
         updateScalarVariables:
   variables:
-    filename:
+    file_name:
       metadata:
         type: "TEXT"
-        description: "This variable will help us to pass the required file"
+        description: ""
         scope: "SHARED"
         visibility: "PUBLIC"
-      defaultValue: "trnx_18.csv"
+      defaultValue: "trnx_18"
 design:
   components:
     Start:
@@ -119,7 +117,7 @@ design:
         x: 0
         "y": 100
       tempMetlId: 3
-    File Iterator:
+    Fixed Iterator:
       position:
         x: 320
         "y": -20
