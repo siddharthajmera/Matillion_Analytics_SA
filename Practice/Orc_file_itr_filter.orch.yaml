@@ -1,0 +1,138 @@
+type: "orchestration"
+version: "1.0"
+pipeline:
+  components:
+    Start:
+      type: "start"
+      transitions:
+        unconditional:
+        - "SQL Script"
+      parameters:
+        componentName: "Start"
+    SQL Script:
+      type: "sql-executor"
+      transitions:
+        success:
+        - "File Iterator"
+      parameters:
+        componentName: "SQL Script"
+        scriptLocation: "Component"
+        declareSqlVariables: "Include selected"
+        variablesToInclude:
+        sqlScript: "CREATE OR REPLACE TABLE staging_sales (\r\n    order_id VARCHAR(50),\r\
+          \n    customer_name VARCHAR(100),\r\n    product VARCHAR(50),\r\n    amount\
+          \ NUMBER(10,2),\r\n    order_date DATE\r\n);"
+      postProcessing:
+        updateOutputMessage:
+        updateScalarVariables:
+    S3 Load:
+      type: "s3-load"
+      parameters:
+        componentName: "S3 Load"
+        stage: "[Custom]"
+        authentication: "Credentials"
+        s3ObjectPrefix: "s3://sidanalytics/File_itr_filter/${filename1}"
+        pattern: ".*"
+        encryption: "S3 Encryption"
+        warehouse: "COMPUTE_WH"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
+        targetTable: "STAGING_SALES"
+        loadColumns:
+        - "ORDER_ID"
+        - "CUSTOMER_NAME"
+        - "PRODUCT"
+        - "AMOUNT"
+        - "ORDER_DATE"
+        format: "[Custom]"
+        fileType: "CSV"
+        compression: "AUTO"
+        recordDelimiter:
+        fieldDelimiter: ","
+        skipHeader: "1"
+        skipBlankLines: "False"
+        dateFormat:
+        timeFormat:
+        timestampFormat:
+        escape:
+        escapeUnenclosedField:
+        trimSpace: "False"
+        fieldOptionallyEnclosed:
+        nullIf:
+        errorOnColumnCountMismatch: "True"
+        emptyFieldAsNull: "True"
+        replaceInvalidCharacters: "False"
+        encodingType:
+        onError: "Abort Statement"
+        sizeLimitB:
+        purgeFiles: "False"
+        truncateColumns: "False"
+        forceLoad: "False"
+      postProcessing:
+        updateOutputMessage:
+        updateScalarVariables:
+    File Iterator:
+      type: "file-iterator"
+      transitions:
+        success:
+        - "Run Transformation"
+      iterationTarget: "S3 Load"
+      parameters:
+        componentName: "File Iterator"
+        inputDataType: "S3"
+        inputDataUrl1: "s3://sidanalytics/File_itr_filter"
+        maxIterations: "3"
+        filterRegex: ".*\\.csv"
+        concurrency: "Sequential"
+        variables:
+        - - "filename1"
+          - "Filename"
+        breakOnFailure: "Yes"
+      postProcessing:
+        updateOutputMessage:
+        updateScalarVariables:
+    Run Transformation:
+      type: "run-transformation"
+      parameters:
+        componentName: "Run Transformation"
+        transformationJob:
+        setScalarVariables:
+        setGridVariables:
+      postProcessing:
+        updateOutputMessage:
+        updateScalarVariables:
+  variables:
+    filename1:
+      metadata:
+        type: "TEXT"
+        description: "use filter in file iterator"
+        scope: "SHARED"
+        visibility: "PUBLIC"
+      defaultValue: "sales_jan"
+design:
+  components:
+    Start:
+      position:
+        x: -340
+        "y": 10
+      tempMetlId: 1
+    SQL Script:
+      position:
+        x: -180
+        "y": 10
+      tempMetlId: 2
+    S3 Load:
+      position:
+        x: -20
+        "y": 10
+      tempMetlId: 3
+    File Iterator:
+      position:
+        x: -20
+        "y": -10
+      tempMetlId: 4
+    Run Transformation:
+      position:
+        x: 180
+        "y": 10
+      tempMetlId: 5
