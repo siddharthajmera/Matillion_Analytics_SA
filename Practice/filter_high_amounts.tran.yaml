@@ -1,0 +1,56 @@
+type: "transformation"
+version: "1.0"
+pipeline:
+  components:
+    Read Staging Sales:
+      type: "table-input"
+      parameters:
+        componentName: "Read Staging Sales"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
+        targetTable: "STAGING_SALES"
+        columnNames:
+        - "ORDER_ID"
+        - "CUSTOMER_NAME"
+        - "PRODUCT"
+        - "AMOUNT"
+        - "ORDER_DATE"
+    Filter High Amounts:
+      type: "filter"
+      sources:
+      - "Read Staging Sales"
+      parameters:
+        componentName: "Filter High Amounts"
+        filterConditions:
+        - - "AMOUNT"
+          - "Is"
+          - "Greater than"
+          - "1500"
+        combineCondition: "And"
+    Create High Amount Sales:
+      type: "rewrite-table"
+      sources:
+      - "Filter High Amounts"
+      parameters:
+        componentName: "Create High Amount Sales"
+        warehouse: "COMPUTE_WH"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
+        targetTable: "HIGH_AMOUNT_SALES"
+design:
+  components:
+    Read Staging Sales:
+      position:
+        x: 0
+        "y": 0
+      tempMetlId: 1
+    Filter High Amounts:
+      position:
+        x: 160
+        "y": 0
+      tempMetlId: 2
+    Create High Amount Sales:
+      position:
+        x: 320
+        "y": 0
+      tempMetlId: 3

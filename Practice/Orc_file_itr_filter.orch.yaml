@@ -95,7 +95,7 @@ pipeline:
       type: "run-transformation"
       parameters:
         componentName: "Run Transformation"
-        transformationJob:
+        transformationJob: "Practice/filter_high_amounts.tran.yaml"
         setScalarVariables:
         setGridVariables:
       postProcessing:
@@ -115,24 +115,24 @@ design:
       position:
         x: -340
         "y": 10
-      tempMetlId: 1
+      tempMetlId:
     SQL Script:
       position:
         x: -180
         "y": 10
-      tempMetlId: 2
+      tempMetlId:
     S3 Load:
       position:
         x: -20
         "y": 10
-      tempMetlId: 3
+      tempMetlId:
     File Iterator:
       position:
         x: -20
         "y": -10
-      tempMetlId: 4
+      tempMetlId:
     Run Transformation:
       position:
-        x: 180
-        "y": 10
-      tempMetlId: 5
+        x: 140
+        "y": 0
+      tempMetlId:
