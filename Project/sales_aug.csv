@@ -1,0 +1,201 @@
+order_id,customer_name,product,category,quantity,price,total_amount,order_date
+ORD74763,Priya Verma,Jeans,Clothing,5,1299,6495,2025-08-22
+ORD23276,Rohit Singh,Jeans,Clothing,5,1299,6495,2025-08-03
+ORD48800,Sandeep Rao,Wrist Watch,Accessories,2,1999,3998,2025-08-15
+ORD32898,Karan Mehta,Kurta,Clothing,1,899,899,2025-08-04
+ORD98705,Simran Kaur,T-Shirt,Clothing,3,499,1497,2025-08-12
+ORD16014,Sneha Joshi,Saree,Clothing,1,1999,1999,2025-08-04
+ORD56861,Amit Sharma,Sneakers,Footwear,2,2499,4998,2025-08-11
+ORD22183,Sandeep Rao,Kurta,Clothing,5,899,4495,2025-08-09
+ORD62530,Sneha Joshi,Backpack,Accessories,2,1499,2998,2025-08-04
+ORD60556,Vikas Yadav,Kurta,Clothing,3,899,2697,2025-08-27
+ORD31860,Divya Rani,Kurta,Clothing,4,899,3596,2025-08-21
+ORD30892,Priya Verma,Sneakers,Footwear,1,2499,2499,2025-08-31
+ORD84572,Priya Verma,Saree,Clothing,5,1999,9995,2025-08-16
+ORD59774,Arjun Kapoor,Kurta,Clothing,2,899,1798,2025-08-20
+ORD99714,Rahul Malhotra,Backpack,Accessories,5,1499,7495,2025-08-01
+ORD73979,Sandeep Rao,Sneakers,Footwear,4,2499,9996,2025-08-30
+ORD18301,Priya Verma,Saree,Clothing,4,1999,7996,2025-08-02
+ORD98857,Karan Mehta,Backpack,Accessories,1,1499,1499,2025-08-23
+ORD97797,Anil Kumar,Handbag,Accessories,5,2499,12495,2025-08-08
+ORD91033,Simran Kaur,Backpack,Accessories,5,1499,7495,2025-08-17
+ORD55318,Priya Verma,Saree,Clothing,2,1999,3998,2025-08-16
+ORD83183,Arjun Kapoor,Saree,Clothing,2,1999,3998,2025-08-27
+ORD94331,Sandeep Rao,Handbag,Accessories,1,2499,2499,2025-08-01
+ORD71510,Sandeep Rao,Sneakers,Footwear,5,2499,12495,2025-08-28
+ORD74441,Simran Kaur,Kurta,Clothing,2,899,1798,2025-08-03
+ORD16599,Sneha Joshi,Sandals,Footwear,3,999,2997,2025-08-09
+ORD59628,Anil Kumar,Sandals,Footwear,5,999,4995,2025-08-21
+ORD68220,Vikas Yadav,Sandals,Footwear,1,999,999,2025-08-15
+ORD75333,Rahul Malhotra,Handbag,Accessories,4,2499,9996,2025-08-03
+ORD95638,Pooja Iyer,Backpack,Accessories,1,1499,1499,2025-08-16
+ORD14696,Amit Sharma,Jeans,Clothing,4,1299,5196,2025-08-14
+ORD21913,Anil Kumar,Formal Shoes,Footwear,1,2799,2799,2025-08-27
+ORD49924,Rahul Malhotra,Handbag,Accessories,5,2499,12495,2025-08-21
+ORD95799,Sandeep Rao,Formal Shoes,Footwear,5,2799,13995,2025-08-07
+ORD17113,Arjun Kapoor,Kurta,Clothing,3,899,2697,2025-08-12
+ORD83420,Simran Kaur,Sandals,Footwear,4,999,3996,2025-08-11
+ORD96136,Rahul Malhotra,Handbag,Accessories,5,2499,12495,2025-08-16
+ORD96364,Sneha Joshi,Kurta,Clothing,1,899,899,2025-08-04
+ORD93055,Neha Gupta,T-Shirt,Clothing,3,499,1497,2025-08-12
+ORD59006,Rahul Malhotra,Wrist Watch,Accessories,5,1999,9995,2025-08-17
+ORD31516,Divya Rani,Jeans,Clothing,1,1299,1299,2025-08-29
+ORD43330,Pooja Iyer,Sneakers,Footwear,4,2499,9996,2025-08-04
+ORD61497,Ritu Jain,Sandals,Footwear,2,999,1998,2025-08-04
+ORD54293,Neha Gupta,Kurta,Clothing,2,899,1798,2025-08-23
+ORD93000,Priya Verma,Saree,Clothing,1,1999,1999,2025-08-30
+ORD69048,Simran Kaur,Handbag,Accessories,1,2499,2499,2025-08-25
+ORD75382,Pooja Iyer,Handbag,Accessories,5,2499,12495,2025-08-05
+ORD66729,Amit Sharma,Formal Shoes,Footwear,1,2799,2799,2025-08-18
+ORD76628,Simran Kaur,Handbag,Accessories,4,2499,9996,2025-08-30
+ORD26827,Rahul Malhotra,Sneakers,Footwear,5,2499,12495,2025-08-06
+ORD52184,Priya Verma,Saree,Clothing,5,1999,9995,2025-08-20
+ORD42537,Anil Kumar,Saree,Clothing,4,1999,7996,2025-08-20
+ORD69355,Karan Mehta,Saree,Clothing,3,1999,5997,2025-08-10
+ORD88974,Rahul Malhotra,Sneakers,Footwear,2,2499,4998,2025-08-14
+ORD81802,Divya Rani,Formal Shoes,Footwear,3,2799,8397,2025-08-27
+ORD38487,Simran Kaur,Backpack,Accessories,5,1499,7495,2025-08-21
+ORD48086,Neha Gupta,Sandals,Footwear,5,999,4995,2025-08-23
+ORD95208,Arjun Kapoor,Backpack,Accessories,2,1499,2998,2025-08-23
+ORD93476,Rohit Singh,Formal Shoes,Footwear,5,2799,13995,2025-08-23
+ORD72963,Sneha Joshi,Jeans,Clothing,3,1299,3897,2025-08-18
+ORD79979,Ritu Jain,Handbag,Accessories,4,2499,9996,2025-08-22
+ORD23955,Karan Mehta,Saree,Clothing,1,1999,1999,2025-08-17
+ORD97851,Amit Sharma,Saree,Clothing,2,1999,3998,2025-08-02
+ORD31094,Amit Sharma,Sandals,Footwear,3,999,2997,2025-08-25
+ORD18130,Karan Mehta,Wrist Watch,Accessories,2,1999,3998,2025-08-27
+ORD80932,Divya Rani,Wrist Watch,Accessories,2,1999,3998,2025-08-25
+ORD90754,Amit Sharma,Backpack,Accessories,4,1499,5996,2025-08-04
+ORD94819,Simran Kaur,Formal Shoes,Footwear,2,2799,5598,2025-08-24
+ORD47701,Anil Kumar,Saree,Clothing,2,1999,3998,2025-08-17
+ORD64600,Divya Rani,T-Shirt,Clothing,4,499,1996,2025-08-13
+ORD11699,Rahul Malhotra,Backpack,Accessories,5,1499,7495,2025-08-02
+ORD68073,Divya Rani,Wrist Watch,Accessories,2,1999,3998,2025-08-20
+ORD87120,Simran Kaur,Sandals,Footwear,3,999,2997,2025-08-25
+ORD35362,Anil Kumar,Handbag,Accessories,2,2499,4998,2025-08-25
+ORD19760,Karan Mehta,Kurta,Clothing,2,899,1798,2025-08-22
+ORD59440,Rohit Singh,Sneakers,Footwear,5,2499,12495,2025-08-04
+ORD44634,Amit Sharma,Saree,Clothing,3,1999,5997,2025-08-18
+ORD43425,Rohit Singh,Sneakers,Footwear,5,2499,12495,2025-08-28
+ORD30290,Amit Sharma,Backpack,Accessories,4,1499,5996,2025-08-23
+ORD16665,Amit Sharma,Sneakers,Footwear,3,2499,7497,2025-08-20
+ORD85061,Rahul Malhotra,Handbag,Accessories,3,2499,7497,2025-08-16
+ORD51662,Anil Kumar,Backpack,Accessories,1,1499,1499,2025-08-26
+ORD18936,Anil Kumar,Sandals,Footwear,2,999,1998,2025-08-17
+ORD81182,Rahul Malhotra,Formal Shoes,Footwear,2,2799,5598,2025-08-14
+ORD38992,Anil Kumar,Saree,Clothing,1,1999,1999,2025-08-12
+ORD57290,Sandeep Rao,Sandals,Footwear,3,999,2997,2025-08-11
+ORD72240,Karan Mehta,Sandals,Footwear,5,999,4995,2025-08-17
+ORD55351,Anil Kumar,T-Shirt,Clothing,1,499,499,2025-08-22
+ORD91412,Pooja Iyer,Sandals,Footwear,5,999,4995,2025-08-30
+ORD24860,Neha Gupta,T-Shirt,Clothing,3,499,1497,2025-08-13
+ORD47070,Vikas Yadav,Wrist Watch,Accessories,5,1999,9995,2025-08-24
+ORD76680,Amit Sharma,Formal Shoes,Footwear,3,2799,8397,2025-08-17
+ORD95397,Pooja Iyer,Kurta,Clothing,1,899,899,2025-08-10
+ORD22577,Neha Gupta,Backpack,Accessories,5,1499,7495,2025-08-03
+ORD92173,Rohit Singh,Formal Shoes,Footwear,5,2799,13995,2025-08-01
+ORD99837,Priya Verma,Sandals,Footwear,2,999,1998,2025-08-28
+ORD67047,Vikas Yadav,Jeans,Clothing,2,1299,2598,2025-08-18
+ORD70191,Arjun Kapoor,Jeans,Clothing,2,1299,2598,2025-08-01
+ORD19600,Divya Rani,Backpack,Accessories,1,1499,1499,2025-08-03
+ORD19232,Amit Sharma,Sneakers,Footwear,3,2499,7497,2025-08-18
+ORD60860,Ritu Jain,Sandals,Footwear,3,999,2997,2025-08-14
+ORD12213,Pooja Iyer,Saree,Clothing,4,1999,7996,2025-08-11
+ORD94072,Vikas Yadav,Jeans,Clothing,5,1299,6495,2025-08-01
+ORD86756,Divya Rani,Handbag,Accessories,1,2499,2499,2025-08-25
+ORD75907,Amit Sharma,Jeans,Clothing,3,1299,3897,2025-08-30
+ORD21338,Priya Verma,Wrist Watch,Accessories,3,1999,5997,2025-08-20
+ORD96602,Karan Mehta,Kurta,Clothing,4,899,3596,2025-08-13
+ORD38818,Amit Sharma,Kurta,Clothing,2,899,1798,2025-08-18
+ORD93105,Rohit Singh,Saree,Clothing,5,1999,9995,2025-08-10
+ORD11461,Rohit Singh,Wrist Watch,Accessories,3,1999,5997,2025-08-31
+ORD15475,Anil Kumar,Formal Shoes,Footwear,2,2799,5598,2025-08-04
+ORD80405,Amit Sharma,Handbag,Accessories,5,2499,12495,2025-08-13
+ORD55069,Anil Kumar,Jeans,Clothing,3,1299,3897,2025-08-07
+ORD31096,Neha Gupta,Saree,Clothing,5,1999,9995,2025-08-05
+ORD43127,Rohit Singh,Sandals,Footwear,5,999,4995,2025-08-27
+ORD84356,Neha Gupta,Jeans,Clothing,2,1299,2598,2025-08-22
+ORD94498,Simran Kaur,T-Shirt,Clothing,5,499,2495,2025-08-15
+ORD18829,Anil Kumar,Jeans,Clothing,3,1299,3897,2025-08-22
+ORD86099,Karan Mehta,Jeans,Clothing,2,1299,2598,2025-08-24
+ORD97988,Pooja Iyer,Backpack,Accessories,3,1499,4497,2025-08-05
+ORD91201,Arjun Kapoor,Sandals,Footwear,1,999,999,2025-08-10
+ORD69067,Priya Verma,Sandals,Footwear,3,999,2997,2025-08-16
+ORD86568,Sneha Joshi,Handbag,Accessories,3,2499,7497,2025-08-23
+ORD51462,Rohit Singh,Handbag,Accessories,5,2499,12495,2025-08-12
+ORD42266,Vikas Yadav,Sneakers,Footwear,1,2499,2499,2025-08-11
+ORD57118,Rahul Malhotra,Sandals,Footwear,4,999,3996,2025-08-09
+ORD68373,Rohit Singh,Backpack,Accessories,4,1499,5996,2025-08-15
+ORD24264,Sneha Joshi,Wrist Watch,Accessories,4,1999,7996,2025-08-18
+ORD46780,Rohit Singh,Handbag,Accessories,1,2499,2499,2025-08-27
+ORD44502,Simran Kaur,Sneakers,Footwear,5,2499,12495,2025-08-07
+ORD12441,Divya Rani,Jeans,Clothing,1,1299,1299,2025-08-29
+ORD86269,Simran Kaur,Formal Shoes,Footwear,1,2799,2799,2025-08-27
+ORD14804,Ritu Jain,Saree,Clothing,5,1999,9995,2025-08-07
+ORD80736,Anil Kumar,Wrist Watch,Accessories,5,1999,9995,2025-08-29
+ORD39269,Pooja Iyer,Sneakers,Footwear,3,2499,7497,2025-08-13
+ORD70909,Sandeep Rao,Handbag,Accessories,3,2499,7497,2025-08-05
+ORD57692,Anil Kumar,Formal Shoes,Footwear,1,2799,2799,2025-08-13
+ORD90482,Anil Kumar,T-Shirt,Clothing,2,499,998,2025-08-28
+ORD68487,Arjun Kapoor,Sneakers,Footwear,5,2499,12495,2025-08-05
+ORD84162,Rohit Singh,Sneakers,Footwear,5,2499,12495,2025-08-31
+ORD57028,Arjun Kapoor,Sneakers,Footwear,4,2499,9996,2025-08-31
+ORD18239,Amit Sharma,Sandals,Footwear,4,999,3996,2025-08-08
+ORD97632,Karan Mehta,Backpack,Accessories,2,1499,2998,2025-08-02
+ORD71561,Neha Gupta,Formal Shoes,Footwear,3,2799,8397,2025-08-13
+ORD95003,Sandeep Rao,Kurta,Clothing,1,899,899,2025-08-02
+ORD45847,Sneha Joshi,Jeans,Clothing,5,1299,6495,2025-08-21
+ORD84732,Simran Kaur,Wrist Watch,Accessories,5,1999,9995,2025-08-18
+ORD87028,Rohit Singh,Saree,Clothing,4,1999,7996,2025-08-12
+ORD59326,Arjun Kapoor,Jeans,Clothing,5,1299,6495,2025-08-09
+ORD56255,Sandeep Rao,Sandals,Footwear,5,999,4995,2025-08-13
+ORD73191,Simran Kaur,Backpack,Accessories,4,1499,5996,2025-08-26
+ORD28214,Sandeep Rao,Handbag,Accessories,1,2499,2499,2025-08-17
+ORD77441,Pooja Iyer,Sneakers,Footwear,2,2499,4998,2025-08-03
+ORD34498,Arjun Kapoor,Wrist Watch,Accessories,2,1999,3998,2025-08-05
+ORD25509,Rohit Singh,Backpack,Accessories,5,1499,7495,2025-08-23
+ORD53283,Arjun Kapoor,Sandals,Footwear,4,999,3996,2025-08-26
+ORD72759,Divya Rani,Jeans,Clothing,4,1299,5196,2025-08-22
+ORD94837,Pooja Iyer,Sandals,Footwear,5,999,4995,2025-08-06
+ORD15655,Simran Kaur,Saree,Clothing,1,1999,1999,2025-08-08
+ORD27658,Rohit Singh,Handbag,Accessories,5,2499,12495,2025-08-06
+ORD85008,Arjun Kapoor,Formal Shoes,Footwear,1,2799,2799,2025-08-29
+ORD33597,Rohit Singh,T-Shirt,Clothing,2,499,998,2025-08-09
+ORD93574,Anil Kumar,Saree,Clothing,5,1999,9995,2025-08-19
+ORD68877,Amit Sharma,Wrist Watch,Accessories,1,1999,1999,2025-08-07
+ORD38752,Ritu Jain,Kurta,Clothing,4,899,3596,2025-08-06
+ORD86368,Simran Kaur,Saree,Clothing,5,1999,9995,2025-08-05
+ORD76952,Simran Kaur,Sneakers,Footwear,5,2499,12495,2025-08-22
+ORD69437,Karan Mehta,Sneakers,Footwear,3,2499,7497,2025-08-30
+ORD59572,Ritu Jain,Handbag,Accessories,1,2499,2499,2025-08-08
+ORD36522,Vikas Yadav,Sneakers,Footwear,1,2499,2499,2025-08-01
+ORD29603,Anil Kumar,Formal Shoes,Footwear,4,2799,11196,2025-08-27
+ORD90576,Ritu Jain,Jeans,Clothing,2,1299,2598,2025-08-16
+ORD25403,Ritu Jain,T-Shirt,Clothing,5,499,2495,2025-08-17
+ORD89098,Priya Verma,Kurta,Clothing,2,899,1798,2025-08-29
+ORD65139,Anil Kumar,T-Shirt,Clothing,4,499,1996,2025-08-17
+ORD40079,Sneha Joshi,T-Shirt,Clothing,5,499,2495,2025-08-14
+ORD87207,Rahul Malhotra,Kurta,Clothing,4,899,3596,2025-08-12
+ORD27548,Rahul Malhotra,Handbag,Accessories,1,2499,2499,2025-08-14
+ORD20986,Karan Mehta,Kurta,Clothing,2,899,1798,2025-08-30
+ORD43791,Karan Mehta,Handbag,Accessories,5,2499,12495,2025-08-14
+ORD78490,Neha Gupta,T-Shirt,Clothing,1,499,499,2025-08-19
+ORD95792,Priya Verma,Formal Shoes,Footwear,1,2799,2799,2025-08-13
+ORD23970,Neha Gupta,Backpack,Accessories,4,1499,5996,2025-08-12
+ORD44249,Rohit Singh,Saree,Clothing,5,1999,9995,2025-08-09
+ORD57925,Simran Kaur,Formal Shoes,Footwear,4,2799,11196,2025-08-19
+ORD36698,Ritu Jain,Wrist Watch,Accessories,4,1999,7996,2025-08-25
+ORD33425,Vikas Yadav,Formal Shoes,Footwear,5,2799,13995,2025-08-16
+ORD43263,Sneha Joshi,Formal Shoes,Footwear,5,2799,13995,2025-08-16
+ORD62183,Karan Mehta,Handbag,Accessories,3,2499,7497,2025-08-25
+ORD40116,Divya Rani,Sneakers,Footwear,1,2499,2499,2025-08-24
+ORD76629,Pooja Iyer,Sneakers,Footwear,1,2499,2499,2025-08-07
+ORD99727,Vikas Yadav,Backpack,Accessories,5,1499,7495,2025-08-20
+ORD93345,Divya Rani,T-Shirt,Clothing,2,499,998,2025-08-13
+ORD88675,Amit Sharma,Jeans,Clothing,2,1299,2598,2025-08-16
+ORD39067,Vikas Yadav,Jeans,Clothing,1,1299,1299,2025-08-09
+ORD60374,Sneha Joshi,Jeans,Clothing,5,1299,6495,2025-08-02
+ORD78289,Sandeep Rao,Saree,Clothing,5,1999,9995,2025-08-21
+ORD32973,Karan Mehta,Handbag,Accessories,1,2499,2499,2025-08-31
+ORD36438,Arjun Kapoor,Kurta,Clothing,4,899,3596,2025-08-01
+ORD14405,Simran Kaur,Formal Shoes,Footwear,3,2799,8397,2025-08-07
