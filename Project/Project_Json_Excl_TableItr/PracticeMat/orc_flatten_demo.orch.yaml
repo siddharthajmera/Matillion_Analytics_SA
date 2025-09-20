@@ -17,8 +17,8 @@ pipeline:
       parameters:
         componentName: "Create Table"
         createMethod: "Create If Not Exists"
-        database: "[Environment Default]"
-        schema: "[Environment Default]"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
         table: "CUST_JSON"
         snowflakeTableType: "Permanent"
         columns:
@@ -45,12 +45,12 @@ pipeline:
         componentName: "S3 Load"
         stage: "[Custom]"
         authentication: "Credentials"
-        s3ObjectPrefix: "s3://myawabucketnew/CUST/cust_data.json"
+        s3ObjectPrefix: "s3://sidanalytics/CUST/cust_data.json"
         pattern: ".*"
-        encryption: "None"
-        warehouse: "[Environment Default]"
-        database: "[Environment Default]"
-        schema: "[Environment Default]"
+        encryption: "S3 Encryption"
+        warehouse: "COMPUTE_WH"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
         targetTable: "CUST_JSON"
         loadColumns:
         - "DATA_VALUE"
