@@ -1,0 +1,154 @@
+type: "transformation"
+version: "1.0"
+pipeline:
+  components:
+    CUST_JSON:
+      type: "table-input"
+      parameters:
+        componentName: "CUST_JSON"
+        database: "[Environment Default]"
+        schema: "[Environment Default]"
+        targetTable: "CUST_JSON"
+        columnNames:
+        - "DATA_VALUE"
+        timeOffset:
+    Extract Nested Data:
+      type: "extract-nested-data-sf"
+      sources:
+      - "CUST_JSON"
+      parameters:
+        componentName: "Extract Nested Data"
+        includeInputColumns: "No"
+        columns:
+        - name: "data"
+          datatype: "VARIANT"
+          size: "0"
+          decimalPlaces: "0"
+          columnName: "DATA_VALUE"
+          aliasName: "data"
+          isArray: "true"
+          include: "false"
+          childElements:
+          - name: "data-element"
+            datatype: "VARIANT"
+            size: "0"
+            decimalPlaces: "0"
+            columnName: "DATA_VALUE"
+            aliasName: "data-element"
+            isArray: "false"
+            include: "false"
+            childElements:
+            - name: "customer_rid"
+              datatype: "NUMBER"
+              size: "0"
+              decimalPlaces: "0"
+              columnName: "DATA_VALUE"
+              aliasName: "customer_rid"
+              isArray: "false"
+              include: "true"
+            - name: "account_name"
+              datatype: "VARCHAR"
+              size: "0"
+              decimalPlaces: "0"
+              columnName: "DATA_VALUE"
+              aliasName: "account_name"
+              isArray: "false"
+              include: "true"
+        outerJoin: "No"
+        inputAlias: "i"
+        arrayPrefix: "f"
+        castingMethod: "Fail on invalid data"
+        caseColumnAliasNames: "No"
+    Flatten Variant:
+      type: "flatten-variant"
+      sources:
+      - "CUST_JSON"
+      parameters:
+        componentName: "Flatten Variant"
+        includeInputColumns: "No"
+        columnMapping:
+        columnFlattens:
+    IP_RANGES:
+      type: "table-input"
+      parameters:
+        componentName: "IP_RANGES"
+        database: "[Environment Default]"
+        schema: "[Environment Default]"
+        targetTable: "IP_RANGE"
+        columnNames:
+        - "DATA_VALUE"
+        timeOffset:
+    Extract Nested Data 2:
+      type: "extract-nested-data-sf"
+      sources:
+      - "IP_RANGES"
+      parameters:
+        componentName: "Extract Nested Data 2"
+        includeInputColumns: "No"
+        columns:
+        - name: "data"
+          datatype: "VARIANT"
+          size: "0"
+          decimalPlaces: "0"
+          columnName: "DATA_VALUE"
+          aliasName: "data"
+          isArray: "true"
+          include: "false"
+          childElements:
+          - name: "data-element"
+            datatype: "VARIANT"
+            size: "0"
+            decimalPlaces: "0"
+            columnName: "DATA_VALUE"
+            aliasName: "data-element"
+            isArray: "false"
+            include: "false"
+            childElements:
+            - name: "customer_rid"
+              datatype: "NUMBER"
+              size: "0"
+              decimalPlaces: "0"
+              columnName: "DATA_VALUE"
+              aliasName: "customer_rid"
+              isArray: "false"
+              include: "true"
+            - name: "account_name"
+              datatype: "VARCHAR"
+              size: "0"
+              decimalPlaces: "0"
+              columnName: "DATA_VALUE"
+              aliasName: "account_name"
+              isArray: "false"
+              include: "true"
+        outerJoin: "No"
+        inputAlias: "i"
+        arrayPrefix: "f"
+        castingMethod: "Fail on invalid data"
+        caseColumnAliasNames: "No"
+design:
+  components:
+    CUST_JSON:
+      position:
+        x: 0
+        "y": 0
+      tempMetlId: 1
+    Extract Nested Data:
+      position:
+        x: 170
+        "y": 0
+      tempMetlId: 2
+    Flatten Variant:
+      position:
+        x: 160
+        "y": -120
+      tempMetlId: 3
+    IP_RANGES:
+      position:
+        x: 0
+        "y": 130
+      tempMetlId: 4
+    Extract Nested Data 2:
+      position:
+        x: 170
+        "y": 130
+      tempMetlId: 5

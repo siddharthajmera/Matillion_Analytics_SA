@@ -1,0 +1,156 @@
+type: "orchestration"
+version: "1.0"
+pipeline:
+  components:
+    Start 0:
+      type: "start"
+      transitions:
+        unconditional:
+        - "Excel Query"
+      skipped: false
+      parameters:
+        componentName: "Start 0"
+    If 0:
+      type: "if"
+      transitions:
+        "true":
+        - "Or"
+        - "And"
+      skipped: false
+      parameters:
+        componentName: "If 0"
+        mode: "Simple"
+        condition:
+        - - "v_row_count"
+          - "Is"
+          - "Greater than"
+          - "0"
+        combineConditions: "And"
+    Copy of If 0:
+      type: "if"
+      transitions:
+        "true":
+        - "Or"
+        - "And"
+      skipped: false
+      parameters:
+        componentName: "Copy of If 0"
+        mode: "Simple"
+        condition:
+        - - "v_row_count"
+          - "Is"
+          - "Greater than"
+          - "0"
+        combineConditions: "And"
+    End Success 0:
+      type: "end-success"
+      skipped: false
+      parameters:
+        componentName: "End Success 0"
+      postProcessing:
+        updateOutputMessage: "Success"
+    End Failure 0:
+      type: "end-failure"
+      skipped: false
+      parameters:
+        componentName: "End Failure 0"
+      postProcessing:
+        updateOutputMessage: "Pipeline Failed"
+    Or:
+      type: "or"
+      transitions:
+        unconditional:
+        - "End Success 0"
+      skipped: false
+      parameters:
+        componentName: "Or"
+      postProcessing:
+        updateOutputMessage: "Successful Run"
+    And:
+      type: "and"
+      transitions:
+        unconditional:
+        - "End Failure 0"
+      parameters:
+        componentName: "And"
+      postProcessing:
+        updateOutputMessage:
+        updateScalarVariables:
+    Excel Query:
+      type: "excel-query"
+      parameters:
+        componentName: "Excel Query"
+        basicAdvancedMode: "Basic"
+        storageType: "Amazon S3 Storage"
+        storageUrl:
+        containsHeaderRow: "Yes"
+        cellRange:
+        connectionOptions:
+        dataSource:
+        dataSelection:
+        dataSourceFilter:
+        combineFilters: "And"
+        limit:
+        type: "Standard"
+        primaryKeys:
+        warehouse: "[Environment Default]"
+        database: "[Environment Default]"
+        schema: "[Environment Default]"
+        targetTable:
+        stage: "[Custom]"
+        stagePlatform: "Snowflake Managed"
+        loadOptions:
+        autoDebug: "Off"
+      postProcessing:
+        updateOutputMessage:
+        updateScalarVariables:
+  variables:
+    v_row_count:
+      metadata:
+        type: "TEXT"
+        description: ""
+        scope: "SHARED"
+        visibility: "PUBLIC"
+      defaultValue: ""
+design:
+  components:
+    Start 0:
+      position:
+        x: -540
+        "y": 40
+      tempMetlId: 10844
+    If 0:
+      position:
+        x: -100
+        "y": -80
+      tempMetlId: 10847
+    Copy of If 0:
+      position:
+        x: -100
+        "y": 110
+      tempMetlId: 10848
+    End Success 0:
+      position:
+        x: 320
+        "y": -50
+      tempMetlId: 10850
+    End Failure 0:
+      position:
+        x: 320
+        "y": 110
+      tempMetlId: 10880
+    Or:
+      position:
+        x: 180
+        "y": -50
+      tempMetlId: 10894
+    And:
+      position:
+        x: 170
+        "y": 110
+      tempMetlId: 10895
+    Excel Query:
+      position:
+        x: -360
+        "y": -70
+      tempMetlId: 10896

@@ -1,0 +1,185 @@
+type: "orchestration"
+version: "1.0"
+pipeline:
+  components:
+    Start 0:
+      type: "start"
+      transitions:
+        unconditional:
+        - "Database Query 2"
+        - "Database Query 1"
+      skipped: false
+      parameters:
+        componentName: "Start 0"
+    Database Query 1:
+      type: "database-query"
+      transitions:
+        success:
+        - "If 0"
+      skipped: false
+      parameters:
+        componentName: "Database Query 1"
+        basicAdvancedMode: "Advanced"
+        databaseType: "Microsoft SQL Server"
+        connectionUrl: "jdbc:jtds:sqlserver://ms-src2.database.windows.net:1433/MS_SRC"
+        username: "admin_awa"
+        password: "MS_SQL"
+        connectionOptions:
+        - - "SSL"
+          - "FALSE"
+        sqlQuery: "Select CustomerID from SalesLT.Customer where 1=1;"
+        type: "Standard"
+        primaryKeys:
+        warehouse1: "[Environment Default]"
+        database: "[Environment Default]"
+        schema: "STG"
+        targetTable: "STG_FLOW_COMP"
+        stage1: "[Custom]"
+        stagePlatform: "Snowflake Managed"
+        loadOptions:
+        - "On"
+        - "Off"
+        - "On"
+        - ""
+        - "On"
+        - "Gzip"
+      postProcessing:
+        updateScalarVariables:
+        - - "v_row_count"
+          - "${sysvar.thisComponent.rowCount}"
+    Database Query 2:
+      type: "database-query"
+      transitions:
+        success:
+        - "Copy of If 0"
+      skipped: false
+      parameters:
+        componentName: "Database Query 2"
+        basicAdvancedMode: "Advanced"
+        databaseType: "Microsoft SQL Server"
+        connectionUrl: "jdbc:jtds:sqlserver://ms-src2.database.windows.net:1433/MS_SRC"
+        username: "admin_awa"
+        password: "MS_SQL"
+        connectionOptions:
+        - - "SSL"
+          - "FALSE"
+        sqlQuery: "Select CustomerID from SalesLT.Customer where 1=0;"
+        type: "Standard"
+        primaryKeys:
+        warehouse1: "[Environment Default]"
+        database: "[Environment Default]"
+        schema: "STG"
+        targetTable: "STG_FLOW_COMP"
+        stage1: "[Custom]"
+        stagePlatform: "Snowflake Managed"
+        loadOptions:
+        - "On"
+        - "Off"
+        - "On"
+        - ""
+        - "On"
+        - "Gzip"
+      postProcessing:
+        updateScalarVariables:
+        - - "v_row_count"
+          - "${sysvar.thisComponent.rowCount}"
+    If 0:
+      type: "if"
+      transitions:
+        "true":
+        - "And 0"
+      skipped: false
+      parameters:
+        componentName: "If 0"
+        mode: "Simple"
+        condition:
+        - - "v_row_count"
+          - "Is"
+          - "Greater than"
+          - "0"
+        combineConditions: "And"
+    Copy of If 0:
+      type: "if"
+      transitions:
+        "true":
+        - "And 0"
+        "false":
+        - "End Failure 0"
+      skipped: false
+      parameters:
+        componentName: "Copy of If 0"
+        mode: "Simple"
+        condition:
+        - - "v_row_count"
+          - "Is"
+          - "Greater than"
+          - "0"
+        combineConditions: "And"
+    And 0:
+      type: "and"
+      transitions:
+        unconditional:
+        - "End Success 0"
+      skipped: false
+      parameters:
+        componentName: "And 0"
+    End Success 0:
+      type: "end-success"
+      skipped: false
+      parameters:
+        componentName: "End Success 0"
+    End Failure 0:
+      type: "end-failure"
+      skipped: false
+      parameters:
+        componentName: "End Failure 0"
+  variables:
+    v_row_count:
+      metadata:
+        type: "TEXT"
+        description: ""
+        scope: "SHARED"
+        visibility: "PUBLIC"
+      defaultValue: ""
+design:
+  components:
+    Start 0:
+      position:
+        x: -480
+        "y": 48
+      tempMetlId: 10510
+    Database Query 1:
+      position:
+        x: -272
+        "y": -80
+      tempMetlId: 10513
+    Database Query 2:
+      position:
+        x: -272
+        "y": 112
+      tempMetlId: 10607
+    If 0:
+      position:
+        x: -101
+        "y": -83
+      tempMetlId: 10731
+    Copy of If 0:
+      position:
+        x: -96
+        "y": 112
+      tempMetlId: 10738
+    And 0:
+      position:
+        x: 80
+        "y": 12
+      tempMetlId: 10764
+    End Success 0:
+      position:
+        x: 238
+        "y": 19
+      tempMetlId: 10773
+    End Failure 0:
+      position:
+        x: 76
+        "y": 145
+      tempMetlId: 10780
