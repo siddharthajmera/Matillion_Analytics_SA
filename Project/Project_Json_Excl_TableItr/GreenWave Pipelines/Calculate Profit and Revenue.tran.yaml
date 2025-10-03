@@ -6,8 +6,8 @@ pipeline:
       type: "table-input"
       parameters:
         componentName: "ORDERS"
-        database: "DEMO_DATABASE"
-        schema: "DEMO_SCHEMA"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
         targetTable: "GW_ORDERS"
         columnNames:
         - "CUSTOMER_RID"
@@ -171,8 +171,8 @@ pipeline:
       type: "table-input"
       parameters:
         componentName: "CUSTOMER_ACCOUNTS"
-        database: "DEMO_DATABASE"
-        schema: "DEMO_SCHEMA"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
         targetTable: "GW_CUSTOMER_ACCOUNTS"
         columnNames:
         - "DATA_VALUE"
@@ -356,7 +356,7 @@ design:
         In this transformation pipeline, you will be taking the tables we created in the orchestration pipeline and joining them to create a single table of business-ready data!
     "2":
       position:
-        x: 0
+        x: -10
         "y": 0
       size:
         height: 223

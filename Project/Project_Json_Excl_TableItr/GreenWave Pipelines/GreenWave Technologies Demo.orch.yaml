@@ -22,9 +22,9 @@ pipeline:
         s3ObjectPrefix: "s3://devrel.matillion.com/"
         pattern: "solutions/GreenWave/customer_accounts.json"
         encryption: "None"
-        warehouse: "DEMO_WAREHOUSE"
-        database: "DEMO_DATABASE"
-        schema: "DEMO_SCHEMA"
+        warehouse: "COMPUTE_WH"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
         targetTable: "GW_CUSTOMER_ACCOUNTS"
         loadColumns:
         - "DATA_VALUE"
@@ -53,8 +53,8 @@ pipeline:
       parameters:
         componentName: "Create CUSTOMER_ACCOUNTS"
         createReplace: "Replace"
-        database: "DEMO_DATABASE"
-        schema: "DEMO_SCHEMA"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
         newTableName: "GW_CUSTOMER_ACCOUNTS"
         tableType: "Permanent"
         columns:
@@ -85,7 +85,8 @@ pipeline:
         - "Table Iterator"
       parameters:
         componentName: "Run Create SHEET_NAMES"
-        transformationJob: "GreenWave Pipelines/Create SHEET_NAMES"
+        transformationJob: "Project/Project_Json_Excl_TableItr/GreenWave Pipelines/Create\
+          \ SHEET_NAMES.tran.yaml"
         setScalarVariables:
     Table Iterator:
       type: "table-iterator"
@@ -96,8 +97,8 @@ pipeline:
       parameters:
         componentName: "Table Iterator"
         mode: "Basic"
-        database: "DEMO_DATABASE"
-        schema: "DEMO_SCHEMA"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
         targetTable: "GW_SHEET_NAMES"
         concurrency: "Concurrent"
         columnMapping:
@@ -110,7 +111,8 @@ pipeline:
         - "End Success"
       parameters:
         componentName: "Run Calculate Profit and Revenue"
-        transformationJob: "GreenWave Pipelines/Calculate Profit and Revenue"
+        transformationJob: "Project/Project_Json_Excl_TableItr/GreenWave Pipelines/Calculate\
+          \ Profit and Revenue.tran.yaml"
         setScalarVariables:
     Excel Query:
       type: "excel-query"
@@ -124,9 +126,9 @@ pipeline:
         sqlQuery: "SELECT * FROM ${worksheet_name}"
         type: "Standard"
         primaryKeys:
-        warehouse: "DEMO_WAREHOUSE"
-        database: "DEMO_DATABASE"
-        schema: "DEMO_SCHEMA"
+        warehouse: "COMPUTE_WH"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
         targetTable: "GW_${worksheet_name}"
         stage: "[Custom]"
         stagePlatform: "Snowflake Managed"
