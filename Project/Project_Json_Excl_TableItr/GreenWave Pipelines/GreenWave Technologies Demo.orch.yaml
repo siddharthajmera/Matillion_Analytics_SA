@@ -19,7 +19,7 @@ pipeline:
         componentName: "Load Customer 360 Data"
         stage: "[Custom]"
         authentication: "Credentials"
-        s3ObjectPrefix: "s3://devrel.matillion.com/"
+        s3ObjectPrefix: "s3://sidanalytics/CUST/customer_accounts.json"
         pattern: "solutions/GreenWave/customer_accounts.json"
         encryption: "None"
         warehouse: "COMPUTE_WH"
