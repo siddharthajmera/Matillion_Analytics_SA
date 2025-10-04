@@ -19,8 +19,8 @@ pipeline:
       type: "table-input"
       parameters:
         componentName: "ORDER_ITEMS"
-        database: "DEMO_DATABASE"
-        schema: "DEMO_SCHEMA"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
         targetTable: "GW_ORDER_ITEMS"
         columnNames:
         - "ITEM_RID"
@@ -33,8 +33,8 @@ pipeline:
       type: "table-input"
       parameters:
         componentName: "ITEMS"
-        database: "DEMO_DATABASE"
-        schema: "DEMO_SCHEMA"
+        database: "DEMODATABASE"
+        schema: "DEMOSCHEMA"
         targetTable: "GW_ITEMS"
         columnNames:
         - "COST"

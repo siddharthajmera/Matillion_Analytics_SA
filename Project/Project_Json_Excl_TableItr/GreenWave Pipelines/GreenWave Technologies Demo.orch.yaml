@@ -20,7 +20,7 @@ pipeline:
         stage: "[Custom]"
         authentication: "Credentials"
         s3ObjectPrefix: "s3://sidanalytics/CUST/customer_accounts.json"
-        pattern: "solutions/GreenWave/customer_accounts.json"
+        pattern: ".*"
         encryption: "None"
         warehouse: "COMPUTE_WH"
         database: "DEMODATABASE"
